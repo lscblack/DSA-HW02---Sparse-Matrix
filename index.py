@@ -430,33 +430,37 @@ def output_results(output_path, results, rows, cols):
             file.write(f"({result[0]}, {result[1]}, {result[2]})\n")
 
 if __name__ == "__main__":
-    input_file_path = input("Enter the path of the first matrix file: ")
-    print("Reading File Wait...")
+    print("\n\033[1m\033[31m....................\033[32mWelcome To Sparix Matrix\033[31m...............\n")
+    input_file_path = input("\033[1m\033[34mEnter the path of the first matrix file: ")
+    print("\033[1mReading File Wait...\033[0m")
     matrix1 = process_input_file(input_file_path)
-    print('\n\n#*--' * 5, "Done Reading file :",input_file_path, '--*#' * 5, '\n\n')
-    second_file_path = input("Enter the path of the second matrix file: ")    
+    print('\033[1m\033[33m\n\n#*-->' * 2, "\033[32mDone Reading file 1:",input_file_path, '\033[0m\n\n')
+    second_file_path = input("\033[1m\033[34mEnter the path of the second matrix file: ")    
     if input_file_path == second_file_path:
        matrix2 = matrix1
     else:
        print("Reading File Wait...")
        matrix2 = process_input_file(second_file_path)
-    print('\n\n#*--' * 5, "Done Reading file :",second_file_path, '--*#' * 5, '\n\n')
-    output_file_path = input("Enter the Name for the output file: ")   
+    print('\n\n#*-->' * 2, "\033[33mDone Reading file 2:",second_file_path, '\033[0m\n\n')
+    output_file_path = input("\033[1m\033[34mEnter the Name for the output file: ")   
     print("*************************----Welcome To Our system:*********************************")
-    print("Which operation would you like to perform:")
-    print("a. Multiply matrices")
-    print("b. Subtract matrices")
-    print("c. Add matrices")
-    choice = input("Enter your choice: ")
+    print("Which operation would you like to perform on your matrix:\n")
+    print("\033[1m\033[31ma. Multiply matrices")
+    print("\033[1m\033[32mb. Subtract matrices")
+    print("\033[1m\033[33mc. Add matrices\n")
+    choice = input("\033[1m\033[30mEnter your choice: ")
 
     if choice == 'c':
        result = matrix1.add_matrices(matrix2)
        output_results(output_file_path, result.data, result.rows, result.cols)
+       print("\033[1m\033[32mDone Saving Your Output Data..")
     elif choice == 'b':
        result = matrix1.subtract_matrices(matrix2)
        output_results(output_file_path, result.data, result.rows, result.cols)
+       print("\033[1m\033[32mDone Saving Your Output Data..")
     elif choice == 'a':
        result = matrix1.multiply_matrices(matrix2)
        output_results(output_file_path, result.data, result.rows, result.cols)
+       print("\033[1m\033[32mDone Saving Your Output Data..")
     else:
        print("Enter Valid choose.")
